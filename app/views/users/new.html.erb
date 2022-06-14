@@ -1,27 +1,38 @@
-<div class="container center">
-  <%= form_with model: @user, class: 'form-container' do |f| %>
-    <div>
-      <%= f.label :username %>
-      <%= f.text_field :username, placeholder: 'Mr. A' %>
-    </div>
+<main class="container center">
+    <% unless @user.errors.empty? %>
+      <section class='errors'>
+        <h2>Error Messages</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </section>
+    <% end %>
 
-    <div>
-      <%= f.label :email %>
-      <%= f.email_field :email, placeholder: 'wannabebajraian@bajra.com' %>
-    </div>
+    <%= form_with model: @user, class: 'form-container' do |f| %>
+      <div>
+        <%= f.label :username %>
+        <%= f.text_field :username, placeholder: 'Mr. A' %>
+      </div>
 
-    <div>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
+      <div>
+        <%= f.label :email %>
+        <%= f.email_field :email, placeholder: 'wannabebajraian@bajra.com' %>
+      </div>
 
-    <div>
-      <%= f.label 'password confirmation' %>
-      <%= f.password_field :password_confirmation %>
-    </div>
+      <div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
 
-    <div>
-      <%= f.submit %>
-    </div>
-  <% end %>
-</div>
+      <div>
+        <%= f.label 'password confirmation' %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+
+      <div>
+        <%= f.submit %>
+      </div>
+    <% end %>
+</main>
