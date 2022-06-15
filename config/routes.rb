@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :sessions
   resources :users
+  resources :reservations
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

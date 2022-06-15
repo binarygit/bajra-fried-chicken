@@ -8,7 +8,7 @@
           <span class='reserved'>reserved</span>
         <% else %>
           <span class='available'>available</span>
-          <button>Reserve</button>
+          <%= button_to 'Reserve', '/reservations', name: 'table_id', value: table.id %>
         <% end %>
       </li>
     <% end %>
