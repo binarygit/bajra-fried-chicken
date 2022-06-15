@@ -19,6 +19,14 @@
       <p class='flash notice'><%= flash[:notice] %></p>
     <% end %>
 
+    <nav>
+      <ul>
+        <% if logged_in? %>
+          <li><%= link_to 'Logout', logout_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
