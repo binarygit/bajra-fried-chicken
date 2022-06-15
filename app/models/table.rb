@@ -1,6 +1,6 @@
 class Table < ApplicationRecord
-  has_one :reservation
-  has_one :user, through: :reservation
+  has_many :reservations
+  has_many :users, through: :reservations
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true

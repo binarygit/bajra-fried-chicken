@@ -4,12 +4,11 @@
       <li>
         <p>Name: <%= table.name %></p>
         <p>Description: <%= table.description %></p>
-        <% if table.user %>
-          <span class='reserved'>reserved</span>
-        <% else %>
-          <span class='available'>available</span>
-          <%= button_to 'Reserve', '/reservations', name: 'table_id', value: table.id %>
-        <% end %>
+        <%= form_with url: '/reservations', method: 'post' do |f| %>
+        <%= f.date_field 'reservation_for' %>
+        <%= f.hidden_field 'table_id', value: table.id %>
+        <%= f.submit 'reserve' %>
+      <% end %>
       </li>
     <% end %>
   </ul>
