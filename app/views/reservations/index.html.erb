@@ -1,0 +1,11 @@
+<main class="container">
+  <h1>reserved tables</h1>
+  <ul>
+    <% @reservations.each do |reservation| %>
+      <li>
+        <p>Name: <%= reservation.name %></p>
+        <p>Description: <%= reservation.description %></p>
+      </li>
+    <% end %>
+  </ul>
+</main>
