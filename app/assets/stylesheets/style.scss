@@ -54,6 +54,18 @@ body {
   }
 }
 
+.flash {
+  padding: 1rem;
+}
+
+.notice {
+  border-bottom: 1px solid blue;
+}
+
+.alert {
+  border-bottom: 1px solid red;
+}
+
 @media (max-width: 600px) {
   .container {
     width: 100%;

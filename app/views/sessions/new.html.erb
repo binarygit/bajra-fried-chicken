@@ -1,7 +1,19 @@
-<%= form_with url: '/sessions', method: 'post' do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit %>
-<% end %>
+<main class="container center">
+  <%= form_with url: '/sessions', method: 'post', class: 'form-container' do |f| %>
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div>
+      <%= f.submit 'Login' %>
+    </div>
+
+    <div>
+      <p>Not a user? <%= link_to "Sign up", new_user_path %></p>
+    </div>
+  <% end %>
+</main>
