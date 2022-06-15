@@ -66,6 +66,16 @@ body {
   border-bottom: 3px solid red;
 }
 
+.reserved {
+  background: #ff1c1cf0;
+  padding: 0 4px;
+}
+
+.available {
+  background: green;
+  padding: 0 4px;
+}
+
 nav {
   padding: 1rem;
   display: flex;

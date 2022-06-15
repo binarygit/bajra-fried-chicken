@@ -4,7 +4,13 @@
       <li>
         <p>Name: <%= table.name %></p>
         <p>Description: <%= table.description %></p>
+        <% if table.user %>
+          <span class='reserved'>reserved</span>
+        <% else %>
+          <span class='available'>available</span>
+          <button>Reserve</button>
+        <% end %>
       </li>
-  <% end %>
+    <% end %>
   </ul>
 </main>
