@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(form_params)
 
     if @user.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'User successfully created'
     else
-      render :new, status: :internal_server_error
+      render :new, status: :unprocessable_entity
     end
   end
 
