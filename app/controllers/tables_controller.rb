@@ -2,6 +2,7 @@ class TablesController < ApplicationController
   before_action :authenticate_user, only: :index
 
   def index
+    @tables = Table.all
   end
 
   def new

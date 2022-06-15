@@ -1,1 +1,10 @@
-<h1>Hello!</h1>
+<main class="container">
+  <ul>
+    <% @tables.each do |table| %>
+      <li>
+        <p>Name: <%= table.name %></p>
+        <p>Description: <%= table.description %></p>
+      </li>
+  <% end %>
+  </ul>
+</main>
