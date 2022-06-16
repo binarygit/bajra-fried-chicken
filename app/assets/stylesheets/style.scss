@@ -76,6 +76,20 @@ body {
   padding: 0 4px;
 }
 
+.reservations {
+  li {
+    padding: 1rem;
+    border-bottom: 3px solid blue;
+  }
+    p {
+      padding: .5rem;
+    }
+}
+
+.reserved-for {
+  text-decoration: underline orange 3px;
+}
+
 nav {
   padding: 1rem;
   display: flex;
