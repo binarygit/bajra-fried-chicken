@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = current_user.tables
+    @reservations = current_user.reservations
+    @tables = current_user.tables.uniq
   end
 
   def new

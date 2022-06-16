@@ -1,10 +1,13 @@
 <main class="container">
   <h1>reserved tables</h1>
   <ul>
-    <% @reservations.each do |reservation| %>
+    <% @tables.each do |table| %>
       <li>
-        <p>Name: <%= reservation.name %></p>
-        <p>Description: <%= reservation.description %></p>
+        <p>Name: <%= table.name %></p>
+        <p>Description: <%= table.description %></p>
+        <% @reservations.where(table_id: table.id).each do |reservation| %>
+        <p>Reserved_for: <%= reservation.reserved_for %></p>
+      <% end %>
       </li>
     <% end %>
   </ul>
