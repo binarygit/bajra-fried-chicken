@@ -1,0 +1,10 @@
+<main class="container">
+  <ul class='reservations'>
+  <% @foods.each do |food| %>
+    <li>
+      <p><%= food.name %></p>
+      <p><%= food.description %></p>
+    </li>
+  <% end %>
+  </ul>
+</main>
