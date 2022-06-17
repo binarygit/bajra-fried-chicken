@@ -1,11 +1,18 @@
 <main class="container">
   <ul class='reservations'>
-  <% @foods.each do |food| %>
-    <li>
-      <p><%= food.name %></p>
-      <p><%= food.description %></p>
-      <p>Rs.<%= food.price %></p>
-    </li>
-  <% end %>
+    <% @foods.each do |food| %>
+      <li>
+        <p><%= food.name %></p>
+        <p><%= food.description %></p>
+        <p>Rs.<%= food.price %></p>
+        <div data-controller='set-cookie quantity-tracker' data-set-cookie-food-id-value='<%= food.id %>'>
+          <button data-action='quantity-tracker#decrease'>-</button>
+          <span data-quantity-tracker-target='quantity' data-set-cookie-target='quantity'>0</span>
+          <button data-action='quantity-tracker#increase'>+</button>
+          <button data-action='set-cookie#setCookie'>Add to cart</button>
+        </div>
+      </li>
+    <% end %>
   </ul>
+  <%= button_to 'Check out', orders_path %>
 </main>
