@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_17_040308) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_17_121421) do
   create_table "bills", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "total"
@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_17_040308) do
     t.datetime "updated_at", null: false
     t.integer "bill_id", null: false
     t.integer "quantity"
-    t.integer "total_price"
+    t.integer "total"
     t.index ["bill_id"], name: "index_orders_on_bill_id"
     t.index ["food_id"], name: "index_orders_on_food_id"
   end
