@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = [ 'quantity' ]
-  static values = { foodId: Number }
+  static values = { foodId: Number, price: Number }
 
   connect() {
     let cookie = document.cookie
@@ -20,6 +20,7 @@ export default class extends Controller {
     let order = {}
     order.food_id = this.foodIdValue
     order.quantity = Number(this.quantityTarget.innerText)
+    order.total = order.quantity * this.priceValue
     orders.push(order)
     document.cookie = ''
     document.cookie = `orders=${JSON.stringify(orders)}`
