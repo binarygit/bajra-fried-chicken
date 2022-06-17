@@ -1,4 +1,4 @@
 class Food < ApplicationRecord
   has_many :orders
-  has_many :users, through: :orders
+  has_many :bills, through: :orders
 end
