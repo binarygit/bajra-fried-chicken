@@ -1,5 +1,6 @@
 class BillsController < ApplicationController
   def index
+    @bills = current_user.bills
   end
 
   def new
@@ -10,8 +11,8 @@ class BillsController < ApplicationController
   def create
     @bill = Bill.new(attributes)
     if @bill.save
-      redirect_to root_path, notice: 'Orders successfully placed'
       cookies.delete :orders
+      redirect_to root_path, notice: 'Orders successfully placed'
     else
       flash.now.alert = 'Something went wrong!'
       render :new, status_code: :internal_server_error
