@@ -7,22 +7,29 @@
           <th>Name</th>
           <th>Quantity</th>
           <th>Total</th>
+          <th>Payment Status</th>
         </tr>
       </thead>
-        <tbody>
-      <% bill.orders.each do |order| %>
+      <tbody>
+        <% bill.orders.each do |order| %>
           <tr>
             <td><%= order.food.name %></td>
             <td><%= order.quantity %></td>
             <td><%= order.total %></td>
+          <td>------</td>
           </tr>
-      <% end %>
-        </tbody>
+        <% end %>
+      </tbody>
       <tfoot>
         <tr class='bill-total'>
           <td>------</td>
           <td>------</td>
           <td><%= bill.total %></td>
+          <% if bill.paid %>
+            <td>paid</td>
+          <% else %>
+            <td>pending</td>
+          <% end %>
         </tr>
       </tfoot>
     </table>
