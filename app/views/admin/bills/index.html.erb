@@ -1,0 +1,32 @@
+<main class="container">
+  <h1>All Orders</h1>
+  <% @bills.each do |bill| %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+        <tbody>
+      <% bill.orders.each do |order| %>
+          <tr>
+            <td><%= order.food.name %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.total %></td>
+          </tr>
+      <% end %>
+        </tbody>
+      <tfoot>
+        <tr class='bill-total'>
+          <td>------</td>
+          <td>------</td>
+          <td><%= bill.total %></td>
+          <td><%= bill.status %></td>
+        </tr>
+      </tfoot>
+    </table>
+  <% end %>
+</main>
