@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_18_070322) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_18_080801) do
   create_table "access_levels", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -42,6 +42,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_18_070322) do
     t.integer "total"
     t.index ["bill_id"], name: "index_orders_on_bill_id"
     t.index ["food_id"], name: "index_orders_on_food_id"
+  end
+
+  create_table "payment_statuses", force: :cascade do |t|
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
