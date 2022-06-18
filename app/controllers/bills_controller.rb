@@ -19,6 +19,15 @@ class BillsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    bill = Bill.find(params[:id])
+    flash.alert = 'Sorry something went wrong!' unless bill.update(paid: true)
+    redirect_to admin_root_url
+  end
+
   private
 
   def attributes

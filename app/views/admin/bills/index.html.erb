@@ -24,7 +24,14 @@
           <td>------</td>
           <td>------</td>
           <td><%= bill.total %></td>
-          <td><%= bill.status %></td>
+          <% if bill.paid %>
+            <td>paid</td>
+          <% else %>
+            <td>
+              pending
+              <%= button_to 'Mark as paid', bill_path(bill), method: 'patch' %>
+            </td>
+          <% end %>
         </tr>
       </tfoot>
     </table>
