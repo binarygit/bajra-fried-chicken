@@ -7,11 +7,11 @@ class User < ApplicationRecord
 
   belongs_to :access_level
 
+  before_validation :set_access_level
+
   validates :email, :username, uniqueness: true, presence: true
   validates :password, confirmation: true, presence: true
   validates :password_confirmation, presence: true
-
-  before_save :set_access_level
 
   private
 
