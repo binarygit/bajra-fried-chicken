@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :reservations
   resources :foods
   resources :orders
+  resources :bills
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

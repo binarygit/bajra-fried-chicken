@@ -1,0 +1,12 @@
+<main class="container">
+  <ul class='reservations'>
+    <% @bill.orders.each do |order| %>
+      <li>
+        <p><%= order.food.name %></p>
+        <p>quantity: <%= order.quantity %></p>
+        <p>Rs.<%= order.total %></p>
+      </li>
+    <% end %>
+  </ul>
+  <%= button_to 'Place Order', bills_path %>
+</main>
