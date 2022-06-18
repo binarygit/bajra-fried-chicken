@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_18_070226) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_18_070322) do
   create_table "access_levels", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -67,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_18_070226) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "access_level_id", null: false
+    t.index ["access_level_id"], name: "index_users_on_access_level_id"
   end
 
   add_foreign_key "bills", "users"
@@ -74,4 +76,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_18_070226) do
   add_foreign_key "orders", "foods"
   add_foreign_key "reservations", "tables"
   add_foreign_key "reservations", "users"
+  add_foreign_key "users", "access_levels"
 end
