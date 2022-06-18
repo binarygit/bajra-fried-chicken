@@ -2,14 +2,14 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ['quantity']
-  static values = { quantity: { type: Number, default: 0 } }
+  static values = { quantity: { type: Number, default: 1 } }
 
   increase() {
     this.quantityValue++
   }
 
   decrease() {
-    if (this.quantityValue != 0) {
+    if (this.quantityValue != 1) {
       this.quantityValue--
     }
   }

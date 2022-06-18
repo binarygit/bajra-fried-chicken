@@ -7,7 +7,7 @@
         <p>Rs.<%= food.price %></p>
         <div data-controller='set-cookie quantity-tracker' data-set-cookie-food-id-value='<%= food.id %>' data-set-cookie-price-value='<%= food.price %>'>
           <button data-action='quantity-tracker#decrease'>-</button>
-          <span data-quantity-tracker-target='quantity' data-set-cookie-target='quantity'>0</span>
+          <span data-quantity-tracker-target='quantity' data-set-cookie-target='quantity'></span>
           <button data-action='quantity-tracker#increase'>+</button>
           <button data-action='set-cookie#setCookie'>Add to cart</button>
         </div>
