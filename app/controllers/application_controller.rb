@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :logged_in?, :admin?
+  helper_method :logged_in?
 
   private
 
@@ -13,9 +13,5 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     return true if current_user
-  end
-
-  def admin?
-    return true if current_user.access_level.name == 'admin'
   end
 end

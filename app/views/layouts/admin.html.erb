@@ -19,16 +19,12 @@
       <p class='flash notice'><%= flash[:notice] %></p>
     <% end %>
 
-    <% if logged_in? %>
-      <nav>
-        <ul>
-          <li><%= link_to 'Logout', logout_path %></li>
-          <li><%= link_to 'My reservations', reservations_path %></li>
-          <li><%= link_to 'Menu', foods_path %></li>
-          <li><%= link_to 'My Orders', bills_path %></li>
-        </ul>
-      </nav>
-    <% end %>
+    <nav>
+      <ul>
+        <li><%= link_to 'Logout', logout_path %></li>
+        <li><%= link_to 'Orders', admin_bills_path %></li>
+      </ul>
+    </nav>
 
     <%= yield %>
   </body>
