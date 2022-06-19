@@ -23,10 +23,19 @@ nav {
   padding: 1rem;
   display: flex;
   justify-content: flex-end;
-  background: #f70ab159;
+  background: #f7bc0a59;
+
 
   ul {
     list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    width: 50%;
+
+    a {
+      text-decoration: none;
+    }
   }
 }
 
