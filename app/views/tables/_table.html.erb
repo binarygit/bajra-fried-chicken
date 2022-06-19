@@ -1,3 +1,8 @@
 <turbo-frame id="table_<%= table.id %>">
-  <p><%= table.name %> <%= link_to 'edit', edit_table_path(table) %></p>
+  <p>
+  <%= table.name %> 
+  <%= link_to 'edit', edit_table_path(table) %> 
+  <%= link_to 'delete', table_path(table), 
+                        data: { turbo_method: :delete } %>
+  </p>
 </turbo-frame>
