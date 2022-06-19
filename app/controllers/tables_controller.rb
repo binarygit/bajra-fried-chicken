@@ -31,7 +31,13 @@ class TablesController < ApplicationController
     @table = Table.new(form_params)
 
     if @table.save
-      redirect_to admin_tables_path, notice: 'Table successfully created'
+      respond_to do |format|
+        format.turbo_stream do 
+          render turbo_stream: turbo_stream.append('all_tables', partial: "tables/table",
+                                                             locals: { table: @table })
+        end
+        format.html { redirect_to admin_table_path }
+      end
     else
       render :new, status: :unprocessable_entity
     end
