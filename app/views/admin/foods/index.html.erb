@@ -1,1 +1,14 @@
-<h1>Hello!</h1>
+<main class="container">
+  <section>
+    <h1>All Foods</h1>
+    <div id="all_foods">
+      <%= render partial: 'foods/food', collection: @foods %>
+    </div>
+  </section>
+
+  <section>
+    <turbo-frame id='new_food'>
+      <%= link_to 'New Food', new_food_path %> 
+    </turbo-frame>
+  </section>
+</main>

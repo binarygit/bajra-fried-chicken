@@ -18,6 +18,12 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
+  <% if resource.class == Food %>
+    <div>
+      <%= f.label :price %>
+      <%= f.text_area :price %>
+    </div>
+  <% end %>
   <div>
     <%= f.submit %>
   </div>

@@ -1,0 +1,6 @@
+<main class='container'>
+  <h1>Edit Food</h1>
+  <turbo-frame id="food_<%= @food.id %>">
+    <%= render partial: 'shared/form', locals: { resource: @food } %>
+  </turbo-frame>
+</main>
