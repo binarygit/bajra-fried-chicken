@@ -43,19 +43,6 @@ class TablesController < ApplicationController
     end
   end
 
-  def destroy 
-    @table = Table.find(params[:id])
-    @table.destroy
-
-    respond_to do |format|
-      format.turbo_stream do 
-        render turbo_stream: turbo_stream.remove('all_tables', partial: "tables/table",
-                                                 locals: { table: @table })
-      end
-      format.html { redirect_to admin_table_path }
-    end
-  end
-
   private
 
   def authenticate_user
