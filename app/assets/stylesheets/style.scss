@@ -39,29 +39,57 @@ table {
   margin-bottom: 2rem;
 }
 
-thead th:nth-child(1) {
-  width: 25%;
+.bill {
+  thead th:nth-child(1) {
+    width: 25%;
+  }
+
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+
+  thead th:nth-child(4) {
+    width: 15%;
+  }
+
+  tbody tr {
+    background-color: #ff33cc;
+  }
 }
 
-thead th:nth-child(2) {
-  width: 20%;
+.menu {
+  thead th:nth-child(1) {
+    width: 20%;
+  }
+
+  thead th:nth-child(2) {
+    width: 40%;
+  }
+
+  thead th:nth-child(3) {
+    width: 10%;
+  }
+
+  thead th:nth-child(4) {
+    width: 30%;
+  }
 }
 
-thead th:nth-child(3) {
-  width: 15%;
-}
+.counter-button {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid black;
 
-thead th:nth-child(4) {
-  width: 15%;
 }
 
 th, td {
   padding: 20px;
 }
 
-tbody tr {
-  background-color: #ff33cc;
-}
 
 textarea {
   width: 418px;
@@ -73,6 +101,12 @@ textarea {
   width: 1100px;
   margin: 0 auto;
   height: 100%;
+}
+
+.food {
+  display: flex;
+  justify-content: space-around;
+
 }
 
 .center {

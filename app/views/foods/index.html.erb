@@ -1,18 +1,28 @@
 <main class="container">
-  <ul class='reservations'>
-    <% @foods.each do |food| %>
-      <li>
-        <p><%= food.name %></p>
-        <p><%= food.description %></p>
-        <p>Rs.<%= food.price %></p>
-        <div data-controller='set-cookie quantity-tracker' data-set-cookie-food-id-value='<%= food.id %>' data-set-cookie-price-value='<%= food.price %>'>
-          <button data-action='quantity-tracker#decrease'>-</button>
-          <span data-quantity-tracker-target='quantity' data-set-cookie-target='quantity'></span>
-          <button data-action='quantity-tracker#increase'>+</button>
-          <button data-action='set-cookie#setCookie'>Add to cart</button>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-  <%= button_to 'Review Orders', new_bill_path, method: 'get' %>
+  <table class='menu'>
+    <thead>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>-</th>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></p>
+        <td><%= food.description %></td>
+        <td>Rs.<%= food.price %></td>
+        <%= render partial: 'shared/counter', locals: { food: food } %>
+      </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr >
+        <td colspan="4">
+          <%= button_to 'Review Orders', new_bill_path, method: 'get', class: 'counter-button' %>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  
 </main>

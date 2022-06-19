@@ -1,0 +1,7 @@
+<td data-controller='set-cookie quantity-tracker' data-set-cookie-food-id-value='<%= food.id %>' data-set-cookie-price-value='<%= food.price %>'>
+  <button data-action='quantity-tracker#decrease' class="counter-button decrease">-</button>
+  <span data-quantity-tracker-target='quantity' data-set-cookie-target='quantity'></span>
+  <button data-action='quantity-tracker#increase' class="counter-button increase">+</button>
+  <button data-action='set-cookie#setCookie' class="counter-button">Add to cart</button>
+</td>
+
