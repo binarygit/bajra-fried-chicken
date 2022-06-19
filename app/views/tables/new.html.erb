@@ -1,6 +1,18 @@
 <main class='container'>
   <h1>New Table</h1>
   <turbo-frame id="new_table">
+
+    <% unless @table.errors.empty? %>
+      <section class='errors'>
+        <h2>Error Messages</h2>
+        <ul>
+          <% @table.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </section>
+    <% end %>
+
     <%= form_with model: @table, class: 'form-container' do |f| %>
       <div>
         <%= f.label :name %>
