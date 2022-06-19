@@ -36,6 +36,22 @@ Table.create!([
   { name: 'The table of Dumbledore', description: "This is Dumbledore's table."}
 ])
 
+User.first.reservations.create!({
+  table_id: Table.second.id,
+  reserved_for: Date.today
+})
+
+User.second.reservations.create!([
+  {
+    table_id: Table.second.id,
+    reserved_for: Date.tomorrow
+  },
+  {
+    table_id: Table.third.id,
+    reserved_for: Date.today
+  }
+])
+
 bill_one = {
   'orders_attributes' => {
     0 => {
