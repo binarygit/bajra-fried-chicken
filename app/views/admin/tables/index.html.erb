@@ -1,12 +1,8 @@
 <main class="container">
   <section>
     <h1>All Tables</h1>
-    <div>
-      <% @tables.each do |table| %>
-        <turbo-frame id="table_<%= table.id %>">
-          <p><%= table.name %> <%= link_to 'edit', edit_table_path(table) %></p>
-        </turbo-frame>
-      <% end %>
+    <div id="all_tables">
+      <%= render partial: 'tables/table', collection: @tables %>
     </div>
   </section>
 
