@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'bills#index'
     resources :bills
+    resources :tables
   end
 
   root 'tables#index'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   resources :foods
   resources :orders
   resources :bills
+  resources :tables
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

@@ -1,0 +1,16 @@
+<main class="container">
+  <section>
+    <h1>All Tables</h1>
+    <div>
+      <% @tables.each do |table| %>
+        <p><%= table.name %> <%= link_to 'edit', edit_admin_table_path(table) %></p>
+      <% end %>
+    </div>
+  </section>
+
+  <section>
+    <turbo-frame id='new_table'>
+      <%= link_to 'New Table', new_table_path %> 
+    </turbo-frame>
+  </section>
+</main>
