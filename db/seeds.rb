@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Table.destroy_all
 Bill.destroy_all
 User.destroy_all
 AccessLevel.destroy_all
 Food.destroy_all
-Table.destroy_all
 
 AccessLevel.create!([ { name: 'admin' }, { name: 'ordinary' } ])
 
