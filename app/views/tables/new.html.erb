@@ -13,7 +13,7 @@
       </section>
     <% end %>
 
-    <%= form_with model: @table, class: 'form-container' do |f| %>
+    <%= form_with model: @table, class: "form-container", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |f| %>
       <div>
         <%= f.label :name %>
         <%= f.text_field :name %>
