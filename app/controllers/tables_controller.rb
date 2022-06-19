@@ -5,6 +5,24 @@ class TablesController < ApplicationController
     @tables = Table.all
   end
 
+  def show
+    @table = Table.find(params[:id])
+  end
+
+  def edit
+    @table = Table.find(params[:id])
+  end
+
+  def update
+    @table = Table.find(params[:id])
+
+    if @table.update(form_params)
+      redirect_to @table
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def new
     @table = Table.new
   end
@@ -15,7 +33,7 @@ class TablesController < ApplicationController
     if @table.save
       redirect_to admin_tables_path, notice: 'Table successfully created'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

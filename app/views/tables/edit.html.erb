@@ -1,0 +1,18 @@
+<main class='container'>
+  <h1>Edit Table</h1>
+  <turbo-frame id="table_<%= @table.id %>">
+    <%= form_with model: @table, class: 'form-container' do |f| %>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </div>
+      <div>
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </turbo-frame>
+</main>
