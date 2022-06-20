@@ -43,8 +43,29 @@ Cookies are used to keep track of what food and the quantity the user selects. T
 
 _Editing, Creating Resources in the same page_
 
-Admins can create a new resource (food, table) in the same page without a page refresh. They can also edit tables and instantly have the resource update without a page refresh. 
+Admins can create a new resource (food, table) in the same page without a page refresh. The resource is added to the list of resources instantly. They can also edit tables and instantly have the resource update without a page refresh. `Turbo-frame` and `Turbo-stream` are used to create this feature.
 
+![ezgif com-gif-maker(1)](https://user-images.githubusercontent.com/87677429/174531764-2a1697c8-36f2-46fa-a41c-0bba42ca091f.gif)
+
+```ruby
+# app/controllers/foods_controller.rb
+
+  def create
+    @food = Food.new(form_params)
+
+    if @food.save
+      respond_to do |format|
+        format.turbo_stream do 
+          render turbo_stream: turbo_stream.append('all_foods', partial: "foods/food",
+                                                   locals: { food: @food })
+        end
+        format.html { redirect_to admin_food_path }
+      end
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+```
 
 ## Key Features
 
