@@ -11,12 +11,8 @@
   </head>
 
   <body>
-    <% if flash[:alert] %>
-      <p class='flash alert'><%= flash[:alert] %></p>
-    <% end %>
-
-    <% if flash[:notice] %>
-      <p class='flash notice'><%= flash[:notice] %></p>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name == 'alert' ? 'flash alert' : 'flash notice' %>
     <% end %>
 
     <% if logged_in? %>
