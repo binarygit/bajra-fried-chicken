@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :logged_in?, :admin?
+  before_action :require_login
 
   private
 
@@ -17,5 +18,12 @@ class ApplicationController < ActionController::Base
 
   def admin?
     return true if current_user.access_level.name == 'admin'
+  end
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to login_url # halts request cycle
+    end
   end
 end

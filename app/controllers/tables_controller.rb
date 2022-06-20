@@ -1,6 +1,4 @@
 class TablesController < ApplicationController
-  before_action :authenticate_user, only: :index
-
   def index
     @tables = Table.all
   end
@@ -44,10 +42,6 @@ class TablesController < ApplicationController
   end
 
   private
-
-  def authenticate_user
-    redirect_to login_path unless logged_in?
-  end
 
   def form_params
     params.require(:table).permit(:name, :description)
